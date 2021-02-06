@@ -4,15 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.enesigneci.basket.databinding.CartItemViewLayoutBinding
+import com.enesigneci.basket.databinding.ListingItemLayoutBinding
 import com.enesigneci.basket.extensions.loadFromUrl
 import com.enesigneci.basket.model.Listing
 
 class ListingAdapter(private val onItemClickListener: View.OnClickListener) : RecyclerView.Adapter<ListingAdapter.ListingViewHolder>(){
     var items: ArrayList<Listing.ListingItem> = arrayListOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListingViewHolder {
-        val binding = CartItemViewLayoutBinding
+        val binding = ListingItemLayoutBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)
         return ListingViewHolder(binding)
     }
@@ -30,7 +29,7 @@ class ListingAdapter(private val onItemClickListener: View.OnClickListener) : Re
         }
     }
 
-    inner class ListingViewHolder(val binding: CartItemViewLayoutBinding)
+    inner class ListingViewHolder(val binding: ListingItemLayoutBinding)
         :RecyclerView.ViewHolder(binding.root)
 
     fun updateItems(list: Listing) {
