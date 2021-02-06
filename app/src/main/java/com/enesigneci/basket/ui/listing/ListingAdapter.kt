@@ -1,12 +1,12 @@
-package com.enesigneci.cart.ui.main
+package com.enesigneci.basket.ui.listing
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.enesigneci.cart.databinding.CartItemViewLayoutBinding
-import com.enesigneci.cart.model.Listing
+import com.enesigneci.basket.databinding.CartItemViewLayoutBinding
+import com.enesigneci.basket.model.Listing
 
 class ListingAdapter(private val onItemClickListener: View.OnClickListener) : RecyclerView.Adapter<ListingAdapter.ListingViewHolder>(){
     var items: ArrayList<Listing.ListingItem> = arrayListOf()

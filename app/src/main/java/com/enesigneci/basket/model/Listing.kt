@@ -1,4 +1,4 @@
-package com.enesigneci.cart.model
+package com.enesigneci.basket.model
 
 
 import com.google.gson.annotations.SerializedName

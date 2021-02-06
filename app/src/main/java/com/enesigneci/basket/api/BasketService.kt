@@ -1,6 +1,6 @@
-package com.enesigneci.cart.api
+package com.enesigneci.basket.api
 
-import com.enesigneci.cart.model.Listing
+import com.enesigneci.basket.model.Listing
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -9,7 +9,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 
-interface CartService {
+interface BasketService {
     @GET("listing")
     fun getListing(): Call<Listing>
     @POST("order")

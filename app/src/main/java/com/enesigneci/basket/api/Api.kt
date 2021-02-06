@@ -1,12 +1,11 @@
-package com.enesigneci.cart
+package com.enesigneci.basket.api
 
-import com.enesigneci.cart.api.CartService
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object MyApi {
+object Api {
 
     private const val BASE_URL = "https://nonchalant-fang.glitch.me/"
 
@@ -20,8 +19,8 @@ object MyApi {
                 .build()
     }
 
-    val cartService: CartService by lazy {
-        retrofit().create(CartService::class.java)
+    val basketService: BasketService by lazy {
+        retrofit().create(BasketService::class.java)
     }
 
 }

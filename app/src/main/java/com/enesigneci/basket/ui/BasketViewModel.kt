@@ -1,17 +1,17 @@
-package com.enesigneci.cart.ui
+package com.enesigneci.basket.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.enesigneci.cart.MyApi
-import com.enesigneci.cart.model.Listing
+import com.enesigneci.basket.api.Api
+import com.enesigneci.basket.model.Listing
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CartViewModel : ViewModel() {
+class BasketViewModel : ViewModel() {
     var listing: MutableLiveData<Listing> = MutableLiveData()
     fun getListing() {
-        MyApi.cartService.getListing().enqueue(object: Callback<Listing>{
+        Api.basketService.getListing().enqueue(object: Callback<Listing>{
             override fun onResponse(call: Call<Listing>, response: Response<Listing>) {
                 response.let {
                     listing.value = it.body()
@@ -25,6 +25,6 @@ class CartViewModel : ViewModel() {
         })
     }
     fun postOrder(id: String, amount: Int) {
-        MyApi.cartService.postOrder(id, amount)
+        Api.basketService.postOrder(id, amount)
     }
 }
