@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.enesigneci.basket.databinding.CartItemViewLayoutBinding
+import com.enesigneci.basket.extensions.loadFromUrl
 import com.enesigneci.basket.model.Listing
 
 class ListingAdapter(private val onItemClickListener: View.OnClickListener) : RecyclerView.Adapter<ListingAdapter.ListingViewHolder>(){
@@ -23,9 +24,7 @@ class ListingAdapter(private val onItemClickListener: View.OnClickListener) : Re
             with(items[position]) {
                 binding.tvCartTitle.text = name
                 binding.tvCartPrice.text = price.plus(" ₺")
-                Glide.with(holder.itemView.context)
-                    .load(image)
-                    .into(binding.ivCartImage)
+                binding.ivCartImage.loadFromUrl(image)
                 binding.btnAddCart.setOnClickListener(onItemClickListener)
             }
         }
