@@ -29,9 +29,7 @@ class ListingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = ListingAdapter({
-           //TODO: call the add to basket method from viewModel
-        })
+        val adapter = ListingAdapter(this)
         binding.rvListing.adapter = adapter
         viewModel.getListing()
         viewModel.listing.observe(viewLifecycleOwner, Observer {
