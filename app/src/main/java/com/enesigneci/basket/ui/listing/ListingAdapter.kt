@@ -7,8 +7,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.enesigneci.basket.R
 import com.enesigneci.basket.databinding.ListingItemLayoutBinding
+import com.enesigneci.basket.db.BasketDb
 import com.enesigneci.basket.extensions.loadFromUrl
 import com.enesigneci.basket.model.Listing
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class ListingAdapter(private var fragment: Fragment) : RecyclerView.Adapter<ListingAdapter.ListingViewHolder>(){
     var items: ArrayList<Listing.ListingItem> = arrayListOf()
@@ -27,6 +31,9 @@ class ListingAdapter(private var fragment: Fragment) : RecyclerView.Adapter<List
                 binding.tvCartPrice.text = price.plus(" ₺")
                 binding.ivCartImage.loadFromUrl(image)
                 binding.btnAddCart.setOnClickListener {
+                    CoroutineScope(Dispatchers.IO).launch {
+                        BasketDb.db.basketDao().insert(items[position])
+                    }
                     fragment.findNavController().navigate(R.id.action_global_cartFragment)
                 }
             }
