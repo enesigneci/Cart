@@ -10,7 +10,7 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Title"
+        android:text="My Cart (0)"
         style="@style/TextAppearance.AppCompat.Title"
         android:gravity="center_vertical"
         android:layout_alignParentTop="true"

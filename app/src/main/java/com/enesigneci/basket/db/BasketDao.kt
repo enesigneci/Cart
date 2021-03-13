@@ -18,4 +18,6 @@ interface BasketDao {
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun update(item: Listing.ListingItem)
+    @Query("DELETE from listingitem")
+    fun clear()
 }

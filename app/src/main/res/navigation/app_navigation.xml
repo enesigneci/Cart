@@ -18,4 +18,8 @@
     <action
         android:id="@+id/action_global_cartFragment"
         app:destination="@id/cartFragment" />
+
+    <action
+        android:id="@+id/action_global_listingFragment"
+        app:destination="@id/listingFragment" />
 </navigation>
