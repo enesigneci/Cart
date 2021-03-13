@@ -32,7 +32,7 @@ class ListingAdapter(private var fragment: Fragment) : RecyclerView.Adapter<List
                 binding.ivCartImage.loadFromUrl(image)
                 binding.btnAddCart.setOnClickListener {
                     CoroutineScope(Dispatchers.IO).launch {
-                        BasketDb.db.basketDao().insert(items[position])
+                        BasketDb.db.basketDao().insert(items[position].apply { quantity++ })
                     }
                     fragment.findNavController().navigate(R.id.action_global_cartFragment)
                 }
